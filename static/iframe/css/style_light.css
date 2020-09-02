@@ -1,0 +1,154 @@
+@charset "utf-8";
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	scrollbar-face-color: #CFEAFF;
+	scrollbar-shadow-color:#BADCF7;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-3dlight-color: #FFFFFF;
+	scrollbar-darkshadow-color:#FFFFFF;
+	scrollbar-track-color: #FFFFFF;
+	scrollbar-arrow-color: #FFFFFF;
+	line-height: 16px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	color: #666;
+}
+a {font-family: "Courier New", Courier, monospace;font-size: 12px;color: #3399CC;line-height: 20px;}
+a:link {color: #3399CC;}
+a:visited {color: #3399CC;}
+a:hover {
+	color: #339;
+	text-decoration: none;
+}
+
+a.time {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 12px;
+	color: #399;
+	line-height: 20px;
+	font-weight: bold;
+}
+.Title_15 {
+	font-size: 15px;
+	color: #666;
+	padding-left: 10px;
+}
+
+a.time:link {color: #267575;}
+a.time:visited {color: #399;}
+a.time:hover {
+	background-color: #F30;
+	text-decoration: none;
+	color: #FFF;
+}
+
+.T15B {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 15px;
+	line-height: 20px;
+	font-weight: bold;
+}
+.Title_Eng {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 30px;
+	font-weight: bold;
+	color: #399;
+	padding-left: 10px;
+}
+.Title_ch {
+	font-size: 24px;
+	font-weight: bold;
+	color: #399;
+}
+.Title_Pink {
+	font-size: 24px;
+	font-weight: bold;
+	color: #F36;
+}
+
+.Title_News {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 30px;
+	font-weight: bold;
+	color: #39C;
+	padding-left: 10px;
+}
+
+.Title_Top {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 30px;
+	font-weight: bold;
+	color: #090;
+	padding-left: 10px;
+}
+
+.Title_sub {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	color: #FFF;
+	font-weight: bold;
+	letter-spacing: 5px;
+	line-height: 15px;
+	padding-left: 10px;
+}
+
+
+.T11_Red {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	color: #F30;
+	line-height: 18px;
+}
+.SelectBox {
+	width: 220px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #F30;
+	background-color: #EEE;
+}
+.SelectBox2 {
+	width: 210px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 21px;
+	font-weight: bold;
+	color: #F36;
+	background-color: #EEE;
+}
+.SelectOption {
+	color: #339999;
+}
+
+
+
+body,td,th {
+
+}
+.T12 {
+	font-size: 12px;
+	font-family: Verdana, Geneva, sans-serif;
+	color: #666;
+	line-height: 18px;
+	padding-left: 8px;
+}
+.T10_Green {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 10px;
+	color: #090;
+	padding-left: 10px;
+	font-weight: bold;
+}
+
+.T12B {
+	font-size: 12px;
+	font-weight: bold;
+	color: #000;
+	padding-left: 5px;
+}
+.Btn01 {
+	padding-left: 5px;
+}

@@ -1,0 +1,133 @@
+@charset "utf-8";
+     /* CSS Document */
+     @import "style_spiderman2_reset.css";
+     body,
+html {
+     width: 100%;
+}
+     body {
+     font-family: "微軟正黑體","蘋果儷黑體","新細明體" ,Arial, Verdana,  Helvetica, sans-serif;
+     overflow-x: hidden;
+     -webkit-text-size-adjust: 100%;
+}
+     /*共用
+---------------------------------------------------*/
+     .c {
+     clear: both;
+}
+     .hide {
+     display: none;
+}
+     /*Container
+-----------------------*/
+     .container {
+     width: 100%;
+     background: url("../images/order_bg.jpg") no-repeat top center;
+     -webkit-background-size: cover;
+     background-size: cover;
+     padding-top: 7%;
+     padding-bottom: 17%;
+}
+     .ordermoudle {
+     width: 300px;
+     height: 290px;
+     padding-top: 55px;
+     margin: 0 auto;
+     background: url("../images/order_moudle.png") no-repeat top center;
+}
+     .txt {
+     width: 96%;
+     margin: 3% auto 0;
+}
+     .txt img {
+     width: 100%;
+}
+     .iframe {
+     width: 300px;
+     height: 280px;
+}
+     .order_form {
+     width: 262px;
+     margin: 0 auto;
+}
+     .order_list {
+     width: 100%;
+     margin-bottom: 10px;
+}
+     .order_list_txt {
+     float: left;
+     width: 50px;
+     color: #fff;
+     font-weight: bold;
+     font-size: 21px;
+     height: 23px;
+     line-height: 25px;
+}
+     .order_select {
+     width: 210px;
+     float: right;
+}
+     .order_select form {
+     width: 210px;
+}
+     .order_select form select {
+     width: 210px;
+     height: 25px;
+     font-size: 15px;
+     line-height: 25px;
+     background: #f9f9f9;
+     border: 0;
+     border-radius: 3px;
+     font-family: "微軟正黑體","蘋果儷黑體","新細明體" ,Arial, Verdana,  Helvetica, sans-serif;
+     font-weight: bold;
+}
+     .order_select form select option {
+     line-height: 25px;
+     background: #f9f9f9;
+}
+     .order_btn {
+     width: 80%;
+     margin: 0 auto;
+}
+     .order_btn  a {
+     display: block;
+}
+     .order_btn a img {
+     width: 100%;
+}
+     /*CssHack
+-------------------------------------------------*/
+     @media screen and (max-width:768px) {
+     }
+     @media screen and (max-width:640px) {
+     .copyright {
+     margin-top: 4.5%;
+     }
+     .copyright li {
+     font-size: 20px;
+     }
+}
+     @media screen and (max-width:480px) {
+     .copyright {
+     margin-top: 4%;
+     }
+     .copyright li {
+     font-size: 18px;
+     }
+}
+     @media screen and (max-width:460px) {
+     .copyright {
+     margin-top: 4%;
+     width: 56%;
+     }
+     .copyright li {
+     font-size: 16px;
+     }
+}
+     @media screen and (max-width:360px) {
+     .copyright li {
+     font-size: 15px;
+     }
+}
+     @media screen and (max-width:320px) {
+     }

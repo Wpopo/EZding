@@ -1,0 +1,213 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+html, body {
+  background: black url('../images/m-bg.jpg?1402732104') center 60px;
+  background-size: 100% auto;
+  color: #FFF;
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+.middle {
+  position: relative;
+  height: 100%;
+  font-size: 0;
+}
+.middle:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+.middle * {
+  font-size: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.wrap {
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.l-title {
+  padding: 60px 20px 20px 20px;
+  background: url('../images/m-title-bg.jpg?1402732128') no-repeat center 0;
+  background-size: 100% auto;
+}
+.l-title.order .title {
+  margin: 0 auto;
+  width: 51px;
+  background: url('../images/m-movie.png?1402582811') no-repeat 0 0;
+  background-size: 100%;
+}
+.l-title .title {
+  height: 20px;
+  text-indent: -99999px;
+}
+
+.table-bd {
+  overflow: hidden;
+  *zoom: 1;
+}
+.table-bd .list {
+  margin: 15px 0;
+  width: 50%;
+  float: left;
+}
+.table-bd .list.clear {
+  clear: both;
+  width: 100%;
+  float: inherit;
+  /*@include clearfix;*/
+}
+.table-bd label {
+  padding-left: 50px;
+  height: 45px;
+  line-height: 45px;
+  display: block;
+  position: relative;
+}
+.table-bd label.error {
+  color: #F00;
+}
+.table-bd label .title {
+  top: 0;
+  left: 0;
+  padding-left: 10px;
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.table-bd label input {
+  margin: 0;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  line-height: 25px;
+  border: 1px solid #3c3c3c;
+  border-radius: 10px;
+  color: #FFF;
+  background: rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 10;
+  outline: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.table-bd label select {
+  margin: 0;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  line-height: 25px;
+  border: 1px solid #CCC;
+  border-radius: 10px;
+  color: #000;
+  background: rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 10;
+  outline: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.table-ft {
+  text-align: center;
+}
+.table-ft .list {
+  position: relative;
+}
+
+.btn-submit {
+  margin: 10px 0 0 0;
+  padding: 0 10px;
+  color: #FFF;
+  height: 35px;
+  line-height: 35px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #333;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+}
+
+@media all and (min-width: 361px) {
+  .l-title {
+    padding: 120px 40px 20px 40px;
+    background-size: 100% auto;
+  }
+  .l-title.order .title {
+    width: 103px;
+  }
+  .l-title .title {
+    height: 41px;
+  }
+}

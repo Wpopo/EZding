@@ -1,0 +1,759 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>線上訂票</title>
+<style type="text/css">
+*{
+	margin:0;
+	padding:0;
+	-ms-user-select: none; /* IE 10+ */
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   user-select: none;
+}
+
+body{
+	font-family:"微軟正黑體"Arial, Helvetica, sans-serif;
+}
+.wrapper{
+	width: 810px;
+  	height: 140px;
+  	border: 3px solid #01bcd1;
+  	display: flex;
+  	justify-content:space-between;
+}
+
+.img{
+	background-image: url(/static/iframe/images/atmovie/img-desktop.png);
+	width: 140px;
+	height: 140px;
+	display: block;
+	background-size: cover;
+}
+
+.selectedBox{
+	width: 630px;
+	height: 100px;
+	margin: 20px 30px 20px 0 ;
+}
+.partTop{
+	width: auto;
+	display: flex;
+	justify-content:flex-start;
+	flex-wrap: wrap;
+}
+
+.cinema, .film{
+	width:306px;
+	height:40px;
+	z-index:10px;
+	border: 1px solid #b4dcaa;
+	cursor:pointer;
+	border-radius: 5px;
+	margin-right: 5px;
+	margin-bottom: 18px;
+}
+
+.cinema::after{
+    content:"";
+    width:0;
+	height:0;
+	border-width: 0 5px 8px;
+	border-style:solid;
+	border-color:transparent transparent #1896b3;
+	transform: rotate(180deg);
+    display: block;
+    position: absolute;
+    top: 40px;
+    left: 435px;
+}
+
+.film::after{
+    content:"";
+    width:0;
+	height:0;
+	border-width: 0 5px 8px;
+	border-style:solid;
+	border-color:transparent transparent #1896b3;
+	transform: rotate(180deg);
+    display: block;
+    position: absolute;
+    top: 40px;
+    left: 745px;
+}
+
+.cinema span, .film span{
+	margin-left: 10px;
+	font-size: 16px;
+	display:block;
+	line-height:40px;
+	height:40px;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 250px;
+}
+.cinema ul, .film ul{
+	display: none;
+    position: relative;
+    top: 0px;
+	list-style: none;
+	height:auto;
+    width: 306px;
+    text-align: start;
+    border: 1px solid #b4dcaa;
+    border-radius: 2px;
+}
+
+.cinema ul .selected, .cinema ul .selected:hover{
+	background-color:#01bcd1;
+	color:#FFF;
+}
+
+.film ul .selected, .film ul .selected:hover{
+	background-color:#01bcd1;
+	color:#FFF;
+}
+
+
+.cinema ul li, .film ul li{
+	width: 286px;
+    background: #FFF;
+    line-height: 25px;
+    padding-left: 20px;
+}
+.cinema ul li:hover, .film ul li:hover{
+	background-color:#6dd0db;
+	color:#FFF;
+}
+
+.day, .time, .people {
+	width: 150px;
+	height: 40px;
+	border: 1px solid #b4dcaa;
+	cursor:pointer;
+	border-radius: 5px;
+	margin-right: 6px;
+	box-sizing: border-box;
+
+}
+
+
+.day ul, .time ul, .people ul{
+	display: none;
+    position: relative;
+    top: -2px;
+	list-style: none;
+	height:auto;
+    width: 148px;
+    text-align: start;
+    border: 1px solid #b4dcaa;
+    border-radius: 2px;
+}
+
+.day ul .selected, .day ul .selected:hover{
+	background-color:#01bcd1;
+	color:#FFF;
+}
+
+.time ul .selected, .time ul .selected:hover{
+	background-color:#01bcd1;
+	color:#FFF;
+}
+
+.people ul .selected, .people ul .selected:hover{
+	background-color:#01bcd1;
+	color:#FFF;
+}
+
+
+.day ul li, .time ul li, .people ul li{
+	width: 138px;
+    background: #FFF;
+    line-height: 25px;
+    padding-left: 10px;
+}
+
+.day ul li:hover, .time ul li:hover, .people ul li:hover{
+	background-color:#6dd0db;
+	color:#FFF;
+}
+
+.span{
+	margin-left: 10px;
+	font-size: 16px;
+	display:block;
+	line-height:40px;
+	height:40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.span::after{
+	content: "";
+	width: 10px;
+	height: 8px;
+	display: inline-block;
+	margin-right: 5px;
+	background-image: url(/static/iframe/images/atmovie/triangle.png);
+}
+
+.imgBotton{
+	width: 20px;
+    height: 20px;
+    padding-left: 5px;
+}
+
+.botton{
+	width: 153px;
+	height: 40px;
+	background-color: #01bcd1;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	cursor: pointer;
+	border-radius: 5px;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width: 540px) and (max-width: 768px) {
+   .wrapper{
+		width: 94%;
+		margin-left: 3%;
+		height: 37vw;
+	}
+
+	.img{
+		background-image: url(/static/iframe/images/atmovie/img-pad.png);
+		height: 100%;
+		width: 22.5vw;
+		margin-right: 5px;
+	}
+
+	.selectedBox{
+		width: 70%;
+		margin: 4vw 2.5vw 3vw 2.5vw;
+	}
+
+	.cinema, .film{
+		width: 100%;
+	    height: 6vw;
+	    margin-bottom: 1.5vw;
+	    margin-right: 0;
+	}
+	.day{
+		width: 44%;
+		height: 6vw;
+	}
+
+	.time, .people{
+		width: 27%;
+		height: 6vw;
+	}
+	.day, .time{
+		margin-right: 1%;
+	}
+	.people{
+		margin-right: 0px;
+	}
+	.botton{
+		width: 100%;
+	    height: 6vw;
+	    margin-top: 1.5vw;
+	    line-height: 6vw;
+	}
+	.cinema ul{
+	    width: 64vw;
+		max-height: 407px;
+   		margin: 0 auto;
+	    top: 0vw;
+	    z-index: 3;
+		overflow: auto;
+	}
+
+	.film ul{
+		width: 64vw;
+   		margin: 0 auto;
+		top: 0vw;
+	}
+
+
+	.cinema ul li, .film ul li{
+		width: 96%;
+	    line-height: 4vw;
+	    padding-left: 4%;
+	}
+
+	.cinema::after{
+	    top: 7vw;
+	    left: 92vw;
+	}
+
+	.film::after{
+	    top: 15vw;
+	    left: 92vw;
+	}
+	.cinema span, .film span{
+		font-size: 16px;
+    	width: 88%;
+    	line-height: 6vw;
+    	height: 6vw;
+	}
+	.span{
+	    font-size: 16px;
+	    line-height: 6vw;
+    	height: 6vw;
+	}
+	.span::after{
+		margin-right: 1.3vw;
+	}
+	.day ul{
+	    display: block;
+	    position: absolute;
+	    top: 25.8vw;
+    	width: 28%;
+	    display: none;
+	}
+	.time ul, .people ul{
+	    display: block;
+	    position: absolute;
+	    top: 25.8vw;
+    	width: 17%;
+	    display: none;
+	}
+	.day ul li, .time ul li, .people ul li{
+		width: 93%;
+    	padding-left: 7%;
+	}
+}
+
+@media screen and (max-width: 539px) {
+   .wrapper{
+		display: block;
+		height: 97vw;
+		width: 94%;
+		margin-left: 3%;
+	}
+
+	.img{
+		background-image: url(/static/iframe/images/atmovie/img-iphone.png);
+	    height: 26vw;
+	    width: 100%;
+	    margin-right: 0px;
+	}
+
+	.selectedBox{
+		width: 80%;
+    	margin: 7vw auto;
+    	height: auto;
+	}
+
+	.cinema, .film{
+		height: 10vw;
+    	margin-bottom: 3vw;
+    	width: 100%;
+    	margin-right: 0;
+	}
+
+	.cinema span, .film span{
+		line-height: 10vw;
+    	height: 10vw;
+    	width: 86%;
+	}
+
+	.time{
+		width: 40%;
+    	height: 10vw;
+    	margin-bottom: 3vw;
+    	margin-right: 0px;
+	}
+
+	.day, .people{
+		width: 58%;
+    	height: 10vw;
+    	margin-bottom: 3vw;
+    	margin-right: 2%;
+	}
+
+	.botton{
+		width: 40%;
+	    height: 10vw;
+	    margin-top: 0vw;
+	    line-height: 10vw;
+	}
+
+	.imgBotton{
+		width: 4vw;
+	    height: 4vw;
+	    padding-left: 1vw;
+	}
+	.cinema ul{
+	    width: 73vw;
+	    position: relative;
+	    top: 0;
+	    margin: 0 auto;
+	    max-height: 200px;
+    	overflow-y: auto;
+    	z-index: 3;
+	}
+
+	.film ul{
+		width: 99%;
+	   	position: relative;
+	    top: 0;
+	    margin: 0 auto;
+	    max-height: 200px;
+    	overflow-y: auto;
+	}
+
+	.cinema ul li, .film ul li{
+		width: 96%;
+	    line-height: 8vw;
+	    padding-left: 4%;
+	}
+
+	.cinema::after{
+	    top: 38vw;
+    	left: 84vw;
+	}
+
+	.film::after{
+	    top: 52vw;
+    	left: 84vw;
+	}
+
+	.span{
+	   	line-height: 10vw;
+    	height: 10vw;
+	}
+
+	.span::after{
+	   	margin-right: 1.8vw;
+	}
+
+	.day ul, .time ul, .people ul{
+	    width: 100%;
+    	max-height: 150px;
+    	overflow-y: auto;
+	}
+	.day ul li, .time ul li, .people ul li{
+		width: 93%;
+    	padding-left: 7%;
+    	height: 8vw;
+    	line-height: 8vw;
+	}
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+
+		$("body").click(function(){
+			$("ul").css('display','none');
+		});
+
+		// click toggle：影城
+		$(".cinema").click(function(event){
+			$(".cinema > ul").toggle();
+			$(this).siblings().children("ul").css("display","none");
+			event.stopPropagation();
+		});
+
+		// click toggle：電影
+		$(".film").click(function(event){
+			let num = $("#filmUl>li").length;
+			if(num >= 1){
+				$(".film > ul").toggle();
+				$(this).siblings().children("ul").css("display","none");
+				event.stopPropagation();
+			}
+		});
+
+		// click toggle：日期
+		$(".day").click(function(event){
+			let num = $("#dayUl>li").length;
+			if(num >= 1){
+				$(".day > ul").toggle();
+				$(this).siblings().children("ul").css("display","none");
+				event.stopPropagation();
+			}
+		});
+
+		// click toggle：場次
+		$(".time").click(function(event){
+			let num = $("#timeUl>li").length;
+			if(num >= 1){
+				$(".time > ul").toggle();
+				$(this).siblings().children("ul").css("display","none");
+				event.stopPropagation();
+			}
+		});
+
+		// click toggle：張數
+		$(".people").click(function(event){
+			$(".people > ul").toggle();
+			$(this).siblings().children("ul").css("display","none");
+			event.stopPropagation();
+		});
+
+		// 選取：影城
+		$(".cinema ul li").click(function(event){
+			$(this).siblings().removeClass("selected");
+			let e = $(this).closest(".cinema");
+			e.find("span").text($(this).text());
+			e.find('input').val($(this).attr('id'));
+			$(this).addClass("selected");
+			$(this).closest("ul").css('display','none');
+			$(".film > span").text("選擇電影");
+			$(".day > span").text("選擇日期");
+		    $(".time > span").text("選擇場次");
+		    $("#dayUl").empty();
+		    $("#timeUl").empty();
+			$("#movieChecked").val("");
+			$("#dayChecked").val("");
+			$("#timeChecked").val("");
+			$("#timeChecked").attr("class","");
+			event.stopPropagation();
+
+			//取得電影列表
+			if($(this).attr('id') !== ""){
+				let cinemaId = $(this).attr('id');
+				$.ajax({
+					type: "GET",
+					dataType: "json",
+					url: "https://www.ezding.com.tw/new_ezding/orders/find_showing_movies?cinema_id=" + cinemaId,
+					success: function(data){
+						//清空內容
+						$("#filmUl").empty();
+						let array = data['result'];
+						for(var i=0;i<array.length;i++){
+							var key = Object.keys(array[i]);
+							var value = array[i][key];
+							$("#filmUl").append('<li id="' + key + '">' + value + '</li>');
+						}
+					}
+				});
+			}
+		});
+
+		// 選取：電影
+		$('#filmUl').on('click', 'li', function(){
+		    $("#filmUl > li").removeClass("selected");
+		    let e = $(this).closest(".film");
+			e.find("span").text($(this).text());
+			e.find('input').val($(this).attr('id'));
+		    $(this).addClass("selected");
+		    $(".day > span").text("選擇日期");
+		    $(".time > span").text("選擇場次");
+		    $("#timeUl").empty();
+			$("#dayChecked").val("");
+			$("#timeChecked").val("");
+			$("#timeChecked").attr("class","");
+
+		    //取得日期
+		    if($(this).attr('id') !== ""){
+		    	let cinemaId = $("#cinemaChecked").attr('value');
+		    	let movieId = $(this).attr('id');
+				$.ajax({
+					type: "GET",
+					dataType: "json",
+					url: "https://www.ezding.com.tw/new_ezding/orders/find_showing_movie_dates?cinema_id=" + cinemaId + "&movie_id=" + movieId,
+					success: function(data){
+						let array = data['result'];
+						let weekdays = ["(日)","(一)","(二)","(三)","(四)","(五)","(六)"];
+						// 撲出日期
+						$("#dayUl").empty();
+						for(var i=0;i<array.length;i++){
+							var value = array[i];
+							var date = new Date(value);
+							var year = date.getFullYear();
+							var month = date.getMonth() + 1;
+							var movieDate = date.getDate();
+							$("#dayUl").append('<li id="' + value + '">' + year + "/" + (month > 9 ? '' : '0') + month + "/" + (date > 9 ? '' : '0') + (movieDate > 9 ? '' : '0') + movieDate + " " + weekdays[date.getDay()] + '</li>');
+						}
+					}
+				});
+		    }
+		});
+
+		// 選取：日期
+		$('#dayUl').on('click', 'li', function(){
+			 $("#dayUl > li").removeClass("selected");
+		    let e = $(this).closest(".day");
+			e.find("span").text($(this).text());
+			e.find('input').val($(this).attr('id'));
+		    $(this).addClass("selected");
+		    $(".time > span").text("選擇場次");
+			$("#timeChecked").val("");
+			$("#timeChecked").attr("class","");
+
+		    //撲場次
+		    if($(this).attr('id') !== ""){
+		    	let cinemaId = $("#cinemaChecked").attr('value');
+		    	let movieId = $("#movieChecked").attr('value');
+		    	let showDate = $(this).attr('id');
+
+	    		$.ajax({
+					type: "GET",
+					dataType: "json",
+					url: "https://www.ezding.com.tw/new_ezding/orders/find_showing_movie_sessions?cinema_id=" + cinemaId + "&movie_id=" + movieId + "&date=" + showDate,
+					success: function(data){
+						let array = data['result'];
+
+						$("#timeUl").empty();
+							for(var i=0;i<array.length;i++){
+								var key = Object.keys(array[i]);
+								var value = array[i][key];
+								var date = new Date(value);
+								var hour = date.getHours();
+								var minute = date.getMinutes();
+							$("#timeUl").append('<li id="' + value + '" value="' + key + '">' + (hour > 9 ? '' : '0') + hour + ":" + (minute > 9 ? '' : '0') + minute + '</li>');
+						}
+					}
+				});
+		    }
+		});
+
+		// 選取：場次
+		$('#timeUl').on('click', 'li', function(){
+			$("#timeUl > li").removeClass("selected");
+		    let e = $(this).closest(".time");
+			e.find("span").text($(this).text());
+			e.find('input').val($(this).attr('id'));
+			e.find('input').attr("class", $(this).attr('value'));
+		    $(this).addClass("selected");
+		});
+
+		// 選取：人數
+		$('.people ul li').click(function(){
+			$(this).siblings().removeClass("selected");
+		    let e = $(this).closest(".people");
+			e.find("span").text($(this).text());
+			e.find('input').val($(this).attr('id'));
+		    $(this).addClass("selected");
+		});
+
+		$(".botton").on('click',function(){
+			let cinemaId = $("#cinemaChecked").attr('value');
+			let movieId = $("#movieChecked").attr('value');
+		    let showDate = $("#dayChecked").attr('value');
+		    let sessionId = $("#timeChecked").attr('class');
+		    let time = $("#timeChecked").attr('value');
+		    let ticketQuantity = $("#peopleChecked").attr('value');
+
+		    if(cinemaId == ""){
+		    	alert("請選擇戲院!");
+		    }else if(movieId == ""){
+				alert("請選擇影片!");
+		    }else if(showDate == ""){
+				alert("請選擇日期!");
+		    }else if(sessionId == "" || time ==""){
+				alert("請選擇場次!");
+		    }else if(ticketQuantity == ""){
+				alert("請選擇座位數!");
+		    }else{
+		    	let CAMPAIGN_CODE = "atmovie";
+			    let url = window.location.origin;
+				url += "/seatMap?campaignCode=" + CAMPAIGN_CODE;
+				url += "&session_id=" + sessionId;
+				url += "&tickets=" + ticketQuantity;
+				url += "&date=" + showDate;
+				url += "&time=" + time;
+				url += "&cinemaId=" + cinemaId;
+				url += "&movieId=" + movieId;
+				window.open(url, "_blank");
+			    }
+		});
+
+	});
+</script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="img"></div>
+		<div class="selectedBox">
+			<div class="partTop">
+				<div class="cinema">
+					<span>選擇戲院</span>
+					<ul class="cinemaUl">
+					   <li id="73544d843cd311e69bb83d0f96c001c2">林口三井</li>
+					   <li id="cf2b5aa8132f11e6b767a1b9bb804d04">台北新光</li>
+					   <li id="40288eb0050f542401050f55676b1bbc">美麗華大直</li>
+					   <li id="40288eb0050f542401050f554e7e0674">台北信義威秀</li>
+					   <li id="5f60dacd-45b3-102d-8d74-e400529c">台北京站威秀</li>
+					   <li id="40288eb0050f542401050f551a8a48c3">台北日新威秀</li>
+					   <li id="737ece862a0111e18e86000bdb90dba4">板橋大遠百威秀</li>
+					   <li id="46efa950eafa11e38b12000bdb90dba4">台北樂聲影城</li>
+					   <li id="40288eb0050f542401050f5566201ba4">華威天母</li>
+					   <li id="e9c365f27f4e11e494ae8b4ddf78b93a">in89豪華數位影城</li>
+					   <li id="4c163aba9c5311e494ae8b4ddf78b93a">新民生戲院</li>
+					   <li id="f644412efbb811e58858f2128151146f">台北真善美影城</li>
+					   <li id="b020ba50fbc811e58858f2128151146f">台北梅花影城</li>
+					   <li id="f5f9b40c8a6611e494ae8b4ddf78b93a">宜蘭新月影城</li>
+					   <li id="4fdedaeaf16b11dfacdd000bdb90dba4">美麗華台茂</li>
+					   <li id="40288eb0050f542401050f5573651ca2">新竹大遠百威秀</li>
+					   <li id="4f9fbbac7a2d11e18e86000bdb90dba4">新竹巨城威秀</li>
+					   <li id="883ddebefe9e11e49e5e8d16c6a1d23a">苗栗尚順威秀影城</li>
+					   <li id="684b2b9a287611e69b8d6f151a450c6d">台中新光</li>
+					   <li id="40288eb0050f542401050f5576601cdc">台中老虎城威秀</li>
+					   <li id="84599c0a220d11e18e86000bdb90dba4">台中大遠百威秀</li>
+					   <li id="5307fea6405811e392f7000bdb90dba4">華威台中</li>
+					   <li id="1b47c492287211e69b8d6f151a450c6d">台南新光</li>
+					   <li id="c3ab0cdc8cad11e494ae8b4ddf78b93a">台南南紡夢時代威秀影城</li>
+					   <li id="40288eb0050f542401050f557dfc1d65">台南威秀</li>
+					   <li id="40288eb0050f542401050f5582141dac">高雄威秀</li>
+					   <li id="44f76448bf2511e59a5d4b53bcb866d6">高雄in89駁二電影院</li>
+					   <li id="2c28121ae2c711e292f7000bdb90dba4">中影屏東影城</li>
+					</ul>
+					<input id="cinemaChecked" type="hidden" value="" >
+				</div>
+				<div class="film">
+					<span>選擇電影</span>
+					<ul id="filmUl"></ul>
+					<input id="movieChecked" type="hidden" value="" >
+				</div>
+
+				<div class="day">
+					<span class="span">選擇日期</span>
+					<ul id="dayUl"></ul>
+					<input id="dayChecked" type="hidden" value="" >
+				</div>
+
+				<div class="time">
+					<span class="span">選擇場次</span>
+					<ul id="timeUl"></ul>
+					<input id="timeChecked" type="hidden" value="" >
+				</div>
+
+				<div class="people">
+					<span class="span">選擇張數</span>
+					<ul class="peopleUl">
+					   <li id="1">1</li>
+					   <li id="2">2</li>
+					   <li id="3">3</li>
+					   <li id="4">4</li>
+					   <li id="5">5</li>
+					   <li id="6">6</li>
+					</ul>
+					<input id="peopleChecked" type="hidden" value="" >
+				</div>
+
+				<div class="botton">
+					<span>查詢</span>
+					<img class="imgBotton" src="/static/iframe/images/atmovie/search.png"/>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea, p, blockquote {
+	margin: 0px;
+	padding: 0px;
+}
+
+html{ background:#19579c url(/pages/iframe/images/chinatimes/bg.gif) repeat-x;}
+
+
+.ezding-haut{
+	width:100%;
+}
+
+.ezding{
+
+        width:100%;
+
+        text-align:center;
+
+        background:url(/pages/iframe/images/chinatimes/bg_01.jpg) no-repeat left top;
+
+        padding:65px 0 10px;
+
+        position:relative;
+}
+
+.ezding span{width:80%;display:block; color:#00d8ff; margin:0 auto; padding-bottom:10px}
+
+.ezdingbg2{
+
+        width:100%;
+
+        text-align:center;
+
+        background:url(/pages/iframe/images/chinatimes/bg_02.jpg) no-repeat left top;
+
+        padding:65px 0 10px;
+
+        position:relative;
+}
+
+.ezding input{
+
+        width:173px;
+
+        height:69px;
+
+        margin:10px auto 0;
+
+        background:url(/pages/iframe/images/chinatimes/send.jpg) no-repeat center top;
+
+        border:0px;
+
+        text-indent:-9999px;
+
+}
+
+.ezding select{
+
+        width:242px;
+
+        margin-top:5px;
+
+        font-size:26px;
+}
+
+.ezding .cservice a{
+
+        width:160px;
+		
+		height:43px;
+		
+		top:0;
+		
+		left:173px;
+		
+		text-indent:-9999px;
+	
+		position:absolute;
+}
+
+.ezdingbg2 p{ padding:5px 20px; color:yellow; text-align:left; line-height:120%; font-size:18px}
+
+.ezdingbg2 .order a{
+
+                width:160px;
+
+                height:43px;
+
+                top:0;
+
+                left:0;
+
+                text-indent:-9999px;
+
+                position:absolute;}
